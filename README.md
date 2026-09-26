@@ -1,69 +1,108 @@
 # Human Behavior Modeling
 
-A compact portfolio project for modeling repeated human behavior with classical statistics and PyTorch.
+[![tests](https://github.com/itoitoakaaka/human-behavior-modeling/actions/workflows/tests.yml/badge.svg)](https://github.com/itoitoakaaka/human-behavior-modeling/actions/workflows/tests.yml)
 
-## Goal
+Leakage-aware predictive modeling of trial-by-trial human behavior with transparent baselines and PyTorch sequence models.
 
-The same trial-by-trial behavioral sequence is modeled with several levels of complexity:
+## Question
 
-1. naive persistence baseline
-2. linear regression
-3. multilayer perceptron (MLP)
-4. gated recurrent unit (GRU)
+Can recent trial history predict the next behavioral output, and does a nonlinear or sequence model add value beyond simple baselines?
 
-The point is not to make deep learning win. The point is to compare transparent baselines with nonlinear and sequence-based models under the same evaluation scheme.
+The public demo is synthetic. Its purpose is to make the evaluation logic explicit before applying it to real participant data.
 
-## Synthetic task
+## Models
 
-The demo creates participant-level adaptation sequences with:
+1. persistence baseline
+2. standardized ridge regression
+3. PyTorch multilayer perceptron
+4. PyTorch GRU
 
-- target
-- previous error
-- previous output
-- condition
-- experience group
+Deep learning is not assumed to be better. Every model is evaluated against the same held-out participants.
 
-The prediction target is the next-trial behavioral output.
+## Leakage control
 
-All data are synthetic.
+Trials from one participant are never split across train and test sets.
 
-## Evaluation
+Training, validation, and test participants are separated before model fitting. Feature standardization is estimated from training data only.
 
-Participants are split into train/test sets so trials from the same person do not leak across evaluation sets.
+That matters more than decorating the README with sixteen badges and hoping nobody notices the split strategy.
 
-Metrics:
+## Prediction task
 
-- MAE
-- RMSE
-- R2
+Inputs include:
 
-## Files
+- current target
+- current output
+- current error
+- condition indicator
+- experience-group indicator
+- recent history for the GRU model
 
-- `data.py`: synthetic participant-level behavior generator
-- `features.py`: supervised-learning dataset construction
-- `baselines.py`: persistence and linear-regression baselines
-- `torch_models.py`: MLP and GRU models
-- `evaluate.py`: shared metrics
-- `demo.py`: end-to-end comparison
-- `tests/test_pipeline.py`: lightweight tests
+Target:
 
-## Setup
+- next-trial behavioral output
 
-    python3 -m venv .venv
-    source .venv/bin/activate
-    pip install -r requirements.txt
+## Install
+
+```bash
+git clone https://github.com/itoitoakaaka/human-behavior-modeling.git
+cd human-behavior-modeling
+python -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev]"
+```
 
 ## Run
 
-    python demo.py
+```bash
+human-behavior-demo
+```
 
-## Research direction
+Run tests:
 
-A natural next step is to replace the synthetic generator with real trial-by-trial behavioral data and ask whether computational models capture individual differences across environments.
+```bash
+pytest
+```
 
-This repository complements `computational-sensorimotor-modeling`:
+## Evaluation
 
-- that repository emphasizes interpretable latent-state models
-- this repository emphasizes predictive human-behavior modeling
+Reported metrics:
 
-Together they provide a bridge from experimental human data to computational neuroscience and Physical AI.
+- MAE
+- RMSE
+- R²
+
+The demo uses a participant-level train/validation/test split.
+
+## Repository layout
+
+```text
+src/behavior_modeling/
+  data.py
+  features.py
+  baselines.py
+  torch_models.py
+  evaluate.py
+  demo.py
+tests/
+.github/workflows/tests.yml
+pyproject.toml
+```
+
+## Relationship to computational-sensorimotor-modeling
+
+This repository focuses on **prediction**.
+
+[`computational-sensorimotor-modeling`](https://github.com/itoitoakaaka/computational-sensorimotor-modeling) focuses on **interpretable latent-state parameters** such as retention and error sensitivity.
+
+The useful comparison is therefore not "classical vs deep learning" as a team sport. It is:
+
+- what an interpretable mechanistic model explains
+- what a predictive model forecasts
+- whether added model complexity generalizes to unseen participants
+
+## Current limitation
+
+All public results are synthetic. No human-study finding is claimed here.
+
+The next research step is a preregistered or otherwise clearly specified evaluation on de-identified real trial-by-trial data, with participant-level cross-validation and model comparison.
