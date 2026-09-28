@@ -104,6 +104,11 @@ The useful comparison is therefore not "classical vs deep learning" as a team sp
 
 ## Decision modeling, intervention, and HCI
 
+<p align="center">
+  <img src="assets/decision_hci_overview.svg" alt="Decision modeling and human-centered intervention pipeline" width="100%">
+</p>
+
+
 The repository now also includes a compact decision-science extension:
 
 - quasi-hyperbolic (beta-delta) temporal discounting
