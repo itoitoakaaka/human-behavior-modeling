@@ -101,6 +101,37 @@ The useful comparison is therefore not "classical vs deep learning" as a team sp
 - what a predictive model forecasts
 - whether added model complexity generalizes to unseen participants
 
+
+## Decision modeling, intervention, and HCI
+
+The repository now also includes a compact decision-science extension:
+
+- quasi-hyperbolic (beta-delta) temporal discounting
+- softmax choice probabilities
+- synthetic intervention policies with explicit user-burden costs
+- HCI evaluation helpers that keep behavioral effectiveness separate from usefulness, cognitive load, and autonomy cost
+- a small research note connecting decision models to adaptive human-centered intervention
+
+Run:
+
+```bash
+python examples/decision_hci_demo.py
+```
+
+See `RESEARCH_NOTE.md` for the conceptual framing.
+
+The long-term research direction is:
+
+```text
+human sensing
+→ latent-state / decision modeling
+→ behavioral prediction
+→ adaptive intervention
+→ human response
+```
+
+The new examples are synthetic and educational. They are not presented as validated models of a specific population or as evidence for intervention effectiveness.
+
 ## Current limitation
 
 All public results are synthetic. No human-study finding is claimed here.
