@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+<rect width="1600" height="980" fill="#ffffff"/>
+<style>
+.t{font:700 38px Arial,sans-serif;fill:#111827}.st{font:400 24px Arial,sans-serif;fill:#334155}
+.h{font:700 23px Arial,sans-serif;fill:#0f172a}.b{font:400 16px Arial,sans-serif;fill:#334155}
+.s{font:400 14px Arial,sans-serif;fill:#475569}.eq{font:italic 20px Georgia,serif;fill:#111827}
+.p1{fill:#eef7ff;stroke:#b8d8f5;stroke-width:2}.p2{fill:#effbf3;stroke:#bfe6c9;stroke-width:2}
+.p3{fill:#fff5eb;stroke:#f3ceb0;stroke-width:2}.p4{fill:#f5f2ff;stroke:#d4c8f5;stroke-width:2}
+.card{fill:#ffffff;stroke:#e2e8f0;stroke-width:1.5}.arr{stroke:#385d7a;stroke-width:5;fill:none;marker-end:url(#a)}
+.loop{stroke:#385d7a;stroke-width:6;fill:none;marker-end:url(#a)}
+</style>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#385d7a"/></marker></defs>
+
+<text x="45" y="58" class="t">From Human Behavior Modeling to Adaptive Intervention</text>
+<text x="45" y="98" class="st">Predict. Understand. Support. A Human-Centered Closed-Loop Pipeline.</text>
+<text x="1510" y="98" text-anchor="end" class="s">Computational Modeling × Decision Science × HCI</text>
+
+<!-- Panel 1 -->
+<rect x="30" y="140" width="320" height="575" rx="16" class="p1"/>
+<text x="50" y="182" class="h">1. Observations</text>
+<text x="50" y="213" class="b">Multi-modal data from real behavior</text>
+
+<rect x="50" y="235" width="280" height="92" rx="12" class="card"/>
+<text x="85" y="270" class="h">Behavioral logs</text><text x="85" y="297" class="b">choices, reaction time, errors</text>
+<rect x="50" y="345" width="280" height="92" rx="12" class="card"/>
+<text x="85" y="380" class="h">Physiological signals</text><text x="85" y="407" class="b">EEG / HR / EDA / IMU</text>
+<rect x="50" y="455" width="280" height="92" rx="12" class="card"/>
+<text x="85" y="490" class="h">Context information</text><text x="85" y="517" class="b">task, environment, time</text>
+<rect x="50" y="565" width="280" height="92" rx="12" class="card"/>
+<text x="85" y="600" class="h">Individual attributes</text><text x="85" y="627" class="b">traits, preferences</text>
+
+<!-- Panel 2 -->
+<rect x="385" y="140" width="325" height="615" rx="16" class="p2"/>
+<text x="405" y="182" class="h">2. Human Modeling</text>
+<text x="405" y="213" class="b">Infer latent states and predict behavior</text>
+<rect x="405" y="235" width="285" height="325" rx="12" class="card"/>
+<circle cx="475" cy="330" r="55" fill="#fff" stroke="#111827" stroke-width="2"/>
+<circle cx="620" cy="330" r="55" fill="#fff" stroke="#111827" stroke-width="2"/>
+<text x="475" y="325" text-anchor="middle" class="h">z<tspan baseline-shift="sub" font-size="14">t</tspan></text>
+<text x="475" y="352" text-anchor="middle" class="s">(latent state)</text>
+<text x="620" y="325" text-anchor="middle" class="h">y<tspan baseline-shift="sub" font-size="14">t</tspan></text>
+<text x="620" y="352" text-anchor="middle" class="s">(observed)</text>
+<path d="M525 285 C560 240 610 245 640 280" class="arr"/>
+<path d="M570 380 C535 425 485 420 455 385" class="arr"/>
+<text x="548" y="455" text-anchor="middle" class="h">State-space model</text>
+<text x="548" y="492" text-anchor="middle" class="eq">z<tspan baseline-shift="sub" font-size="14">t+1</tspan> = f(z<tspan baseline-shift="sub" font-size="14">t</tspan>, u<tspan baseline-shift="sub" font-size="14">t</tspan>) + ε<tspan baseline-shift="sub" font-size="14">t</tspan></text>
+<text x="548" y="525" text-anchor="middle" class="eq">y<tspan baseline-shift="sub" font-size="14">t</tspan> = h(z<tspan baseline-shift="sub" font-size="14">t</tspan>) + η<tspan baseline-shift="sub" font-size="14">t</tspan></text>
+<rect x="405" y="580" width="285" height="145" rx="12" fill="#fff" stroke="#cbd5e1" stroke-dasharray="6 5"/>
+<text x="548" y="620" text-anchor="middle" class="h">Decision model (e.g., β-δ)</text>
+<text x="548" y="675" text-anchor="middle" class="eq">U = β Σ δ<tspan baseline-shift="super" font-size="14">t</tspan> r<tspan baseline-shift="sub" font-size="14">t</tspan></text>
+
+<!-- Panel 3 -->
+<rect x="745" y="140" width="300" height="575" rx="16" class="p3"/>
+<text x="765" y="182" class="h">3. Intervention Policy</text>
+<text x="765" y="213" class="b">Choose what, when, and how to intervene</text>
+<rect x="765" y="245" width="260" height="90" rx="12" class="card"/>
+<text x="800" y="280" class="h">Message / Prompt</text><text x="800" y="307" class="b">“You can do it”</text>
+<rect x="765" y="355" width="260" height="90" rx="12" class="card"/>
+<text x="800" y="390" class="h">Reward Scheduling</text><text x="800" y="417" class="b">timing, magnitude</text>
+<rect x="765" y="465" width="260" height="90" rx="12" class="card"/>
+<text x="800" y="500" class="h">Feedback Modality</text><text x="800" y="527" class="b">visual / auditory / haptic</text>
+<rect x="765" y="575" width="260" height="90" rx="12" class="card"/>
+<text x="800" y="610" class="h">Personalization</text><text x="800" y="637" class="b">adapt to individual state</text>
+
+<!-- Panel 4 -->
+<rect x="1080" y="140" width="490" height="615" rx="16" class="p4"/>
+<text x="1100" y="182" class="h">4. Human Response &amp; Evaluation</text>
+<text x="1100" y="213" class="b">Measure behavioral and subjective outcomes</text>
+
+<rect x="1105" y="245" width="205" height="210" rx="12" class="card"/>
+<text x="1208" y="278" text-anchor="middle" class="h">Behavioral change</text>
+<line x1="1140" y1="415" x2="1280" y2="415" stroke="#64748b" stroke-width="2"/>
+<line x1="1140" y1="315" x2="1140" y2="415" stroke="#64748b" stroke-width="2"/>
+<path d="M1140 330 C1180 345 1210 370 1280 388" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="7 5"/>
+<path d="M1140 330 C1170 365 1220 395 1280 402" stroke="#2563eb" stroke-width="4" fill="none"/>
+
+<rect x="1330" y="245" width="215" height="210" rx="12" class="card"/>
+<text x="1437" y="278" text-anchor="middle" class="h">Task performance</text>
+<line x1="1365" y1="415" x2="1510" y2="415" stroke="#64748b" stroke-width="2"/>
+<rect x="1390" y="345" width="40" height="70" fill="#94a3b8"/>
+<rect x="1460" y="315" width="40" height="100" fill="#3b82f6"/>
+<text x="1410" y="438" text-anchor="middle" class="s">None</text><text x="1480" y="438" text-anchor="middle" class="s">Adaptive</text>
+
+<rect x="1105" y="485" width="440" height="225" rx="12" class="card"/>
+<text x="1325" y="520" text-anchor="middle" class="h">Human-centered metrics (HCI)</text>
+<text x="1135" y="560" class="b">Perceived usefulness</text><rect x="1290" y="545" width="185" height="22" fill="#6fcf97"/>
+<text x="1135" y="600" class="b">Cognitive load</text><rect x="1290" y="585" width="105" height="22" fill="#b69df0"/>
+<text x="1135" y="640" class="b">Autonomy</text><rect x="1290" y="625" width="125" height="22" fill="#f5a65b"/>
+<text x="1135" y="680" class="b">Satisfaction</text><rect x="1290" y="665" width="215" height="22" fill="#ef7fa1"/>
+
+<!-- Horizontal arrows -->
+<path d="M350 430 H385" class="arr"/>
+<path d="M710 430 H745" class="arr"/>
+<path d="M1045 430 H1080" class="arr"/>
+
+<!-- Loop -->
+<path d="M1330 755 V825 C1330 865 1295 880 1255 880 H210 C155 880 130 850 130 805 V725" class="loop"/>
+<rect x="555" y="795" width="390" height="62" rx="14" fill="#fff" stroke="#385d7a" stroke-width="2"/>
+<text x="750" y="832" text-anchor="middle" class="h">Closed-Loop Adaptation</text>
+<text x="750" y="912" text-anchor="middle" class="b">Use the response to update the model and intervention policy</text>
+
+<text x="45" y="955" class="h" fill="#2563eb">Understand Human Behavior  •  Support Better Decisions  •  With Humans, Not Instead of Humans</text>
+</svg>
