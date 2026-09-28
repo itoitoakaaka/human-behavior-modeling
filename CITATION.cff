@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software or research prototype, please cite it using the metadata below."
+title: "Human Behavior Modeling: Prediction, Decision Models, and Human-Centered Intervention"
+type: software
+authors:
+  - family-names: "Ito"
+    given-names: "Akane"
+version: 0.1.0
+date-released: 2026-09-28
+repository-code: "https://github.com/itoitoakaaka/human-behavior-modeling"
+url: "https://github.com/itoitoakaaka/human-behavior-modeling"
+keywords:
+  - human behavior modeling
+  - decision making
+  - temporal discounting
+  - human-centered AI
+  - HCI
+  - intervention
+  - computational modeling
