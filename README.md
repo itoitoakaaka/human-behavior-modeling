@@ -142,3 +142,42 @@ The new examples are synthetic and educational. They are not presented as valida
 All public results are synthetic. No human-study finding is claimed here.
 
 The next research step is a preregistered or otherwise clearly specified evaluation on de-identified real trial-by-trial data, with participant-level cross-validation and model comparison.
+
+
+## Adaptive algorithmic recourse prototype
+
+This repository also contains a **synthetic extension inspired by** Tominaga, Yamashita, and Kurashima, *Psychological Benefits and Costs of Diversifying Algorithmic Recourse* (IJCAI-ECAI 2026).
+
+The published study reports a trade-off between psychological benefits and cognitive costs of recourse-set size/diversity. The implementation here does **not** reproduce their participant data or estimate their empirical effect sizes. Instead, it asks a prospective question:
+
+> Can the number and diversity of recourse options be adapted to a user's latent engagement, cognitive-load, and acceptance state?
+
+The prototype contains:
+
+- a transparent latent user state: engagement, cognitive load, acceptance
+- candidate recourse policies: 1, 3, or 7 options, with close/diverse variants where meaningful
+- an explicit utility balancing willingness to act and decision acceptance against cognitive load
+- state-dependent policy selection
+- a trial-to-trial state update for closed-loop simulation
+
+Run:
+
+```bash
+python examples/adaptive_recourse_demo.py
+```
+
+Implementation:
+
+```text
+src/behavior_modeling/adaptive_recourse.py
+examples/adaptive_recourse_demo.py
+tests/test_adaptive_recourse.py
+```
+
+### Why this is an extension rather than a reproduction
+
+The original authors' public repository provides analysis code and describes the expected experimental dataset, but the participant-level dataset is not publicly bundled and may be available only on reasonable request. This project therefore keeps empirical reproduction and speculative modeling separate.
+
+The coefficients in `adaptive_recourse.py` are illustrative. They encode only the published qualitative pattern: diversity can be beneficial for smaller sets, while a large diverse set can make cognitive load more salient.
+
+A real next step would estimate the state and response model from human data, compare adaptive vs fixed policies prospectively, and evaluate effectiveness, cognitive load, autonomy, and acceptance separately.
