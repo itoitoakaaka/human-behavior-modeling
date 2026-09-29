@@ -146,7 +146,13 @@ The next research step is a preregistered or otherwise clearly specified evaluat
 
 ## Adaptive algorithmic recourse prototype
 
+<p align="center">
+  <img src="assets/adaptive_recourse_overview.svg" alt="Adaptive algorithmic recourse under latent user state" width="100%">
+</p>
+
 This repository also contains a **synthetic extension inspired by** Tominaga, Yamashita, and Kurashima, *Psychological Benefits and Costs of Diversifying Algorithmic Recourse* (IJCAI-ECAI 2026).
+
+A paper-style technical note suitable for archiving with a software release is available at [`ADAPTIVE_RECOURSE_TECHNICAL_NOTE.md`](ADAPTIVE_RECOURSE_TECHNICAL_NOTE.md).
 
 The published study reports a trade-off between psychological benefits and cognitive costs of recourse-set size/diversity. The implementation here does **not** reproduce their participant data or estimate their empirical effect sizes. Instead, it asks a prospective question:
 
