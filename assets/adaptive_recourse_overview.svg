@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect width="1600" height="900" fill="#ffffff"/>
+<style>
+.t{font:700 38px Arial,sans-serif;fill:#0f3b75}.st{font:400 22px Arial,sans-serif;fill:#526b8a}
+.h{font:700 22px Arial,sans-serif;fill:#123e79}.b{font:400 16px Arial,sans-serif;fill:#334155}
+.s{font:400 14px Arial,sans-serif;fill:#64748b}.panel{fill:#f9fbfd;stroke:#b8d1e8;stroke-width:2}
+.card{fill:#ffffff;stroke:#d8e3ee;stroke-width:1.5}.arr{stroke:#1e4f80;stroke-width:4;fill:none;marker-end:url(#a)}
+.loop{stroke:#1e4f80;stroke-width:4;fill:none;marker-end:url(#a)}
+.blue{fill:#dbeafe}.teal{fill:#ccfbf1}.orange{fill:#ffedd5}.purple{fill:#ede9fe}
+</style>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1e4f80"/></marker></defs>
+
+<text x="800" y="58" text-anchor="middle" class="t">Adaptive Algorithmic Recourse Under Latent User State</text>
+<text x="800" y="92" text-anchor="middle" class="st">A synthetic closed-loop extension for state-dependent decision support</text>
+
+<!-- pipeline -->
+<rect x="30" y="145" width="250" height="250" rx="14" class="panel"/>
+<circle cx="65" cy="178" r="20" fill="#0f3b75"/><text x="65" y="186" text-anchor="middle" fill="white" class="h">1</text>
+<text x="100" y="185" class="h">AI decision</text>
+<rect x="80" y="225" width="110" height="80" rx="8" class="card"/>
+<line x1="100" y1="248" x2="155" y2="248" stroke="#123e79" stroke-width="4"/>
+<line x1="100" y1="270" x2="145" y2="270" stroke="#123e79" stroke-width="4"/>
+<circle cx="188" cy="300" r="28" fill="#fee2e2"/><text x="188" y="310" text-anchor="middle" font-size="38" fill="#dc2626">×</text>
+<text x="155" y="345" text-anchor="middle" class="b">Unfavorable outcome</text>
+<text x="155" y="370" text-anchor="middle" class="s">e.g., rejection / high-risk judgment</text>
+
+<path d="M280 270 H325" class="arr"/>
+
+<rect x="325" y="145" width="280" height="250" rx="14" class="panel"/>
+<circle cx="360" cy="178" r="20" fill="#0f3b75"/><text x="360" y="186" text-anchor="middle" fill="white" class="h">2</text>
+<text x="395" y="185" class="h">Latent user state</text>
+<rect x="360" y="225" width="210" height="45" rx="10" class="blue"/><text x="385" y="253" class="b">Engagement</text>
+<rect x="360" y="280" width="210" height="45" rx="10" class="blue"/><text x="385" y="308" class="b">Cognitive load</text>
+<rect x="360" y="335" width="210" height="45" rx="10" class="blue"/><text x="385" y="363" class="b">Acceptance</text>
+
+<path d="M605 270 H650" class="arr"/>
+
+<rect x="650" y="145" width="340" height="250" rx="14" class="panel"/>
+<circle cx="685" cy="178" r="20" fill="#0f3b75"/><text x="685" y="186" text-anchor="middle" fill="white" class="h">3</text>
+<text x="720" y="185" class="h">Adaptive recourse policy</text>
+<text x="820" y="225" text-anchor="middle" class="b">Select number and diversity of options</text>
+<rect x="680" y="250" width="85" height="105" rx="10" class="card"/><text x="722" y="278" text-anchor="middle" class="b">1 option</text><text x="722" y="302" text-anchor="middle" class="s">close</text>
+<rect x="780" y="250" width="85" height="105" rx="10" class="card"/><text x="822" y="278" text-anchor="middle" class="b">3 options</text><text x="822" y="302" text-anchor="middle" class="s">close/diverse</text>
+<rect x="880" y="250" width="85" height="105" rx="10" class="card"/><text x="922" y="278" text-anchor="middle" class="b">7 options</text><text x="922" y="302" text-anchor="middle" class="s">close/diverse</text>
+
+<path d="M990 270 H1035" class="arr"/>
+
+<rect x="1035" y="145" width="280" height="250" rx="14" class="panel"/>
+<circle cx="1070" cy="178" r="20" fill="#0f3b75"/><text x="1070" y="186" text-anchor="middle" fill="white" class="h">4</text>
+<text x="1105" y="185" class="h">Human outcomes</text>
+<rect x="1070" y="230" width="210" height="45" rx="10" class="teal"/><text x="1090" y="258" class="b">Willingness to act</text>
+<rect x="1070" y="285" width="210" height="45" rx="10" class="teal"/><text x="1090" y="313" class="b">Decision acceptance</text>
+<rect x="1070" y="340" width="210" height="45" rx="10" class="orange"/><text x="1090" y="368" class="b">Cognitive load</text>
+
+<path d="M1315 270 H1360" class="arr"/>
+
+<rect x="1360" y="145" width="210" height="250" rx="14" class="panel"/>
+<circle cx="1395" cy="178" r="20" fill="#0f3b75"/><text x="1395" y="186" text-anchor="middle" fill="white" class="h">5</text>
+<text x="1430" y="185" class="h">State update</text>
+<path d="M1435 260 C1435 220 1510 220 1510 260 C1510 300 1435 300 1435 260" fill="none" stroke="#123e79" stroke-width="4"/>
+<path d="M1505 240 l15 5-8 14" fill="none" stroke="#123e79" stroke-width="4"/>
+<text x="1465" y="335" text-anchor="middle" class="b">Update latent state</text>
+<text x="1465" y="360" text-anchor="middle" class="s">for the next interaction</text>
+
+<path d="M1465 395 V455 H465 V395" class="loop"/>
+<text x="965" y="447" text-anchor="middle" class="b">Closed loop: user state → recourse → response → state update</text>
+
+<!-- examples -->
+<rect x="30" y="505" width="1540" height="145" rx="14" fill="#f0fdfa" stroke="#b8e8dd"/>
+<text x="55" y="540" class="h">Example A: low-load, engaged user</text>
+<text x="55" y="570" class="b">State: engagement high · cognitive load low · acceptance moderate</text>
+<path d="M515 575 H590" class="arr"/>
+<rect x="615" y="530" width="330" height="80" rx="12" class="card"/>
+<text x="780" y="560" text-anchor="middle" class="h">Policy: 3 diverse options</text>
+<text x="780" y="588" text-anchor="middle" class="s">Richer choice set when burden is manageable</text>
+<path d="M945 575 H1020" class="arr"/>
+<text x="1050" y="560" class="b">Expected pattern:</text>
+<text x="1050" y="588" class="s">higher willingness / acceptance with moderate load</text>
+
+<rect x="30" y="675" width="1540" height="145" rx="14" fill="#fff7ed" stroke="#f1d0a8"/>
+<text x="55" y="710" class="h">Example B: high-load, uncertain user</text>
+<text x="55" y="740" class="b">State: engagement low · cognitive load high · acceptance low</text>
+<path d="M515 745 H590" class="arr"/>
+<rect x="615" y="700" width="330" height="80" rx="12" class="card"/>
+<text x="780" y="730" text-anchor="middle" class="h">Policy: 1 close option</text>
+<text x="780" y="758" text-anchor="middle" class="s">Simpler next step when burden is already high</text>
+<path d="M945 745 H1020" class="arr"/>
+<text x="1050" y="730" class="b">Expected pattern:</text>
+<text x="1050" y="758" class="s">reduced additional cognitive burden</text>
+
+<text x="35" y="860" class="s">Synthetic prototype inspired by Tominaga, Yamashita &amp; Kurashima (IJCAI-ECAI 2026). Not an empirical reproduction.</text>
+</svg>
