@@ -1,18 +1,18 @@
 """Synthetic adaptive algorithmic-recourse prototype.
 
-This module is inspired by Tominaga, Yamashita, and Kurashima (IJCAI-ECAI
-2026), who experimentally studied psychological benefits and costs of
-recourse-set size and diversity. It does NOT reproduce their participant data.
+Inspired by Tominaga, Yamashita, and Kurashima (IJCAI-ECAI 2026), who
+experimentally studied psychological benefits and costs of recourse-set size
+and diversity. This module does NOT reproduce their participant data.
 
-The extension here asks a different, prospective question:
+The prospective extension asks:
 Can a recourse interface adapt the number/diversity of options to a user's
-latent cognitive/acceptance state rather than presenting a fixed set?
+latent engagement, cognitive-load, and acceptance state rather than presenting
+a fixed recourse set?
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass
-from itertools import product
 
 import numpy as np
 
@@ -70,14 +70,17 @@ def expected_response(
     state: UserState,
     policy: RecoursePolicy,
     *,
-    load_weight: float = 0.65,
+    load_weight: float = 0.50,
 ) -> ExpectedResponse:
     """Compute a transparent synthetic response model.
 
-    Coefficients are deliberately illustrative rather than fitted to the
-    IJCAI-ECAI participant dataset. The qualitative structure reflects the
-    published result: diversity can be beneficial for smaller option sets,
+    Coefficients are illustrative rather than fitted to the IJCAI-ECAI
+    participant dataset. The qualitative structure reflects the published
+    finding that diversification can be beneficial for smaller option sets,
     while large diverse sets can make cognitive load more salient.
+
+    The prospective extension adds state dependence: users already carrying
+    high cognitive load are penalized more strongly for complex recourse sets.
     """
 
     s = state.clipped()
@@ -91,11 +94,9 @@ def expected_response(
         diversity_gain = 0.12 if policy.set_size == 3 else 0.04
         diversity_load = 0.03 if policy.set_size == 3 else 0.20
 
-    # Engaged users can exploit additional options; users already carrying
-    # high load are less likely to benefit from a large choice set.
     complexity = (policy.set_size - 1) / 6.0
     engagement_bonus = 0.08 * s.engagement * complexity
-    overload_penalty = 0.18 * s.cognitive_load * complexity
+    overload_penalty = 0.28 * s.cognitive_load * complexity
 
     willingness = (
         0.34
@@ -110,7 +111,7 @@ def expected_response(
         + 0.30 * s.acceptance
         + 0.55 * size_gain
         + 0.40 * diversity_gain
-        - 0.12 * s.cognitive_load * complexity
+        - 0.18 * s.cognitive_load * complexity
     )
     load = (
         0.12
@@ -124,16 +125,20 @@ def expected_response(
     acceptance = float(np.clip(acceptance, 0.0, 1.0))
     load = float(np.clip(load, 0.0, 1.0))
 
-    # Keep desirable outcomes and burden visible rather than hiding everything
-    # inside a black-box "best" score.
-    utility = 0.60 * willingness + 0.40 * acceptance - load_weight * load
+    # High-load users place more weight on reducing additional burden.
+    effective_load_weight = load_weight + 0.90 * s.cognitive_load
+    utility = (
+        0.60 * willingness
+        + 0.40 * acceptance
+        - effective_load_weight * load
+    )
     return ExpectedResponse(willingness, acceptance, load, float(utility))
 
 
 def choose_policy(
     state: UserState,
     *,
-    load_weight: float = 0.65,
+    load_weight: float = 0.50,
 ) -> tuple[RecoursePolicy, ExpectedResponse]:
     """Choose the candidate policy with the largest expected utility."""
 
@@ -165,7 +170,7 @@ def simulate_adaptive_session(
     initial_state: UserState,
     *,
     n_trials: int = 12,
-    load_weight: float = 0.65,
+    load_weight: float = 0.50,
 ) -> list[dict[str, float | int | str]]:
     """Run a closed-loop synthetic adaptive-recourse session."""
 
